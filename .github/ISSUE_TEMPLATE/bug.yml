@@ -1,0 +1,36 @@
+name: 'Bug Report'
+description: "Report a bug or issue you've found in one of the packages."
+labels: ['bug', 'triage']
+body:
+    - type: dropdown
+      id: package
+      attributes:
+          label: 'Package'
+          description: 'Which package is this bug related to?'
+          options:
+              - '@zephracss/cli'
+              - '@zephracss/core'
+              - '@zephracss/common'
+              - '@zephracss/preset-default'
+              - '@zephracss/vite'
+    - type: textarea
+      id: description
+      attributes:
+          label: 'Description'
+          description: 'A brief description of the bug, what you expected to happen, and what actually happened.'
+          placeholder: 'Bug: ...'
+      validations:
+          required: true
+    - type: textarea
+        id: reproduction
+        attributes:
+            label: 'Reproduction'
+            description: 'A brief description of how to reproduce the bug.'
+            placeholder: 'Steps to reproduce: ...'
+    - type: textarea
+        id: logs
+        attributes:
+            label: 'Logs'
+            description: 'Any logs or errors you received.'
+            placeholder: 'Logs: ...'
+            render: shell
