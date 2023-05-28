@@ -22,8 +22,6 @@ This project uses [Prettier](https://prettier.io/) to format code. Please make s
 
 Commit messages should be in the present or imperative tense and should be descriptive. If you're unsure of how to write a commit message, please read [this](https://chris.beams.io/posts/git-commit/).
 
-```
-
 #### Import Sorting
 
 One thing our linter can't do is sort imports. Blow is a guide on how you should ideally sort your imports.
