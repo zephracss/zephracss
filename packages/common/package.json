@@ -1,0 +1,43 @@
+{
+    "name": "@zephracss/common",
+    "version": "0.0.1",
+    "description": "Internal utilities for ZephraCSS, an elegant atomic css engine for a more civilized age.",
+    "type": "module",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "types": "index.d.ts",
+    "files": [
+        "dist",
+        "index.d.ts"
+    ],
+    "author": "TheCommieAxolotl",
+    "keywords": [
+        "zephra",
+        "zephracss",
+        "atomic-css",
+        "css",
+        "tailwind",
+        "tailwindcss",
+        "windicss"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zephracss/zephracss.git"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^25.0.0",
+        "@rollup/plugin-node-resolve": "^13.0.6",
+        "@rollup/plugin-typescript": "^8.2.1",
+        "chalk": "^5.2.0",
+        "rollup": "^2.56.3",
+        "rollup-plugin-tsconfig-paths": "^1.5.0",
+        "tslib": "^2.3.0"
+    },
+    "dependencies": {
+        "typescript": ">=4.7.2 <5.0.0 || >=5.0.0 <6.0.0"
+    }
+}

@@ -1,0 +1,12 @@
+# dependencies
+node_modules
+
+# testing
+test
+cache
+
+# turbo logs
+.turbo
+
+# MacOS
+.DS_Store
