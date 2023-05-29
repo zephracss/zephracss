@@ -22,15 +22,15 @@ body:
       validations:
           required: true
     - type: textarea
-        id: reproduction
-        attributes:
-            label: 'Reproduction'
-            description: 'A brief description of how to reproduce the bug.'
-            placeholder: 'Steps to reproduce: ...'
+      id: reproduction
+      attributes:
+          label: 'Reproduction'
+          description: 'A brief description of how to reproduce the bug.'
+          placeholder: 'Steps to reproduce: ...'
     - type: textarea
-        id: logs
-        attributes:
-            label: 'Logs'
-            description: 'Any logs or errors you received.'
-            placeholder: 'Logs: ...'
-            render: shell
+      id: logs
+      attributes:
+          label: 'Logs'
+          description: 'Any logs or errors you received.'
+          placeholder: 'Logs: ...'
+          render: shell
