@@ -18,6 +18,8 @@
 
 ---
 
+Inspired by awesome tools like [tailwindcss](https://tailwindcss.com) and [unocss](https://unocss.dev).
+
 ## License
 
 MIT. See [LICENSE](https://github.com/zephracss/zephracss/tree/main/LICENSE) for more information.
