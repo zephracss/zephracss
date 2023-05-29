@@ -1,0 +1,30 @@
+name: 'Major Feature Proposal'
+description: 'Propose a major feature or change to the project.'
+labels: ['mfp', 'triage']
+body:
+    - type: dropdown
+      id: package
+      attributes:
+          label: 'Package'
+          description: 'Which package is this bug related to?'
+          options:
+              - '@zephracss/cli'
+              - '@zephracss/core'
+              - '@zephracss/common'
+              - '@zephracss/preset-default'
+              - '@zephracss/vite'
+      validations:
+          required: true
+    - type: textarea
+      id: proposal
+      attributes:
+          label: 'Proposal'
+          description: 'A detailed description of the proposal, why it is needed, and how it could be inplemented.'
+      validations:
+          required: true
+    - type: input
+      id: related
+        attributes:
+            label: 'Related Issues'
+            description: 'List any related issues or pull requests.'
+            placeholder: '#1, #2, #3'
