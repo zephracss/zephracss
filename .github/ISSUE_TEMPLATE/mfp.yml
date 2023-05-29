@@ -24,7 +24,7 @@ body:
           required: true
     - type: input
       id: related
-        attributes:
-            label: 'Related Issues'
-            description: 'List any related issues or pull requests.'
-            placeholder: '#1, #2, #3'
+      attributes:
+          label: 'Related Issues'
+          description: 'List any related issues or pull requests.'
+          placeholder: '#1, #2, #3'
