@@ -14,7 +14,7 @@ console.log(logo);
 
 console.log(chalk.yellowBright(`Zephra @${process.env.VERSION}`));
 
-const watchDev = process.argv.includes('--watch') || process.argv.includes('-w');
+const watchDev = process.argv.includes('--watch') || process.argv.includes('-w') || process.argv.includes('dev');
 
 console.log(chalk.yellowBright(`Running in ${watchDev ? 'watch' : 'build'} mode`));
 
