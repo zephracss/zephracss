@@ -27,7 +27,9 @@ export default defineConfig({
         nodeResolve({
             exportConditions: ['node'],
         }),
-        typescript(),
+        typescript({
+            exclude: ['node_modules/**', 'test/**'],
+        }),
         terser(),
     ],
     external: ['@zephracss/core', 'vite'],
