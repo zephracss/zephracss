@@ -41,9 +41,8 @@
         "rollup-plugin-tsconfig-paths": "^1.5.0",
         "tslib": "^2.3.0",
         "typescript": "^5.0.4",
-        "@zephracss/common": "workspace:*"
-    },
-    "dependencies": {
+        "@zephracss/common": "workspace:*",
         "@zephracss/core": "workspace:*"
-    }
+    },
+    "dependencies": {}
 }

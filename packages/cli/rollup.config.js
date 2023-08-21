@@ -32,5 +32,5 @@ export default defineConfig({
         preserveShebangs(),
         terser(),
     ],
-    external: ['@zephracss/core', 'chokidar'],
+    external: ['chokidar'],
 });

@@ -32,5 +32,5 @@ export default defineConfig({
         }),
         terser(),
     ],
-    external: ['@zephracss/core', 'vite'],
+    external: ['vite'],
 });
