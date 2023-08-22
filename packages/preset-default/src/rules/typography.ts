@@ -73,7 +73,7 @@ export const fontWeight = {
 } satisfies Rule;
 
 export const fontStyle = {
-    match: new RegExp(`italic|oblique`),
+    match: new RegExp(`(italic|oblique)`),
     generate: (_, __, style) => {
         return {
             fontStyle: style,
