@@ -4,9 +4,9 @@ import { Units, trailing } from '@zephracss/common';
 
 export const whitespace = {
     match: new RegExp(`whitespace-(normal|nowrap|pre|pre-line|pre-wrap)`),
-    generate: (_, __, whitespace) => {
+    generate: (_, __, whiteSpace) => {
         return {
-            whiteSpace: whitespace,
+            whiteSpace,
         };
     },
 } satisfies Rule;
@@ -21,19 +21,19 @@ export const wordBreak = {
 } satisfies Rule;
 
 export const textTransform = {
-    match: new RegExp(`(?:uppercase|lowercase|capitalize|normal)`),
-    generate: (_, __, transform) => {
+    match: new RegExp(`(uppercase|lowercase|capitalize|normal)`),
+    generate: (_, __, textTransform) => {
         return {
-            textTransform: transform,
+            textTransform,
         };
     },
 } satisfies Rule;
 
 export const textAlign = {
-    match: new RegExp(`(?:text-)?(?:left|center|right|justify)`),
-    generate: (_, __, align) => {
+    match: new RegExp(`(?:text-)?(left|center|right|justify)`),
+    generate: (_, __, textAlign) => {
         return {
-            textAlign: align,
+            textAlign,
         };
     },
 } satisfies Rule;
