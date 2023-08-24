@@ -1,4 +1,5 @@
 export * from './typography';
+export * from './positioning';
 export * from './transition';
 export * from './overflow';
 export * from './spacing';
