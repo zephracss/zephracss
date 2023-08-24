@@ -1,6 +1,6 @@
 {
     "name": "@zephracss/preset-default",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "description": "ZephraCSS's default preset. Includes rules, colors, fonts and variants.",
     "type": "module",
     "main": "dist/index.js",
