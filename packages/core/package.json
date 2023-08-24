@@ -1,6 +1,6 @@
 {
     "name": "@zephracss/core",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "An elegant atomic css engine for a more civilized age.",
     "type": "module",
     "main": "dist/index.cjs",
