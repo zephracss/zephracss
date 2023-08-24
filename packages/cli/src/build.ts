@@ -27,14 +27,15 @@ export default async (config: ZephraOptions) => {
         console.log(info(`Building ${file}`));
 
         const content = await fs.readFile(file, 'utf-8');
+        const res = await build(config, content, false);
 
-        output.push(await build(config, content, false));
+        if (res) output.push(res);
 
         console.log();
         console.log(chalk.greenBright(`Built ${file}`));
     }
 
-    await makeOutput(config, output.join(`\n\n/* @zephra-new-file */\n\n`) + '\n');
+    await makeOutput(config, output.join(config?.minify ? '' : '\n\n/* @zephra-new-file */\n\n'));
 
     console.log();
     console.log(

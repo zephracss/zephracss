@@ -82,12 +82,14 @@ export default (options: ZephraOptions | string): Plugin => {
 
                         const content = fs.readFileSync(file, 'utf-8');
 
-                        output.push(await build(config, content, false));
+                        const res = await build(config, content, false);
+
+                        if (res) output.push(res);
                     }
 
                     console.log(info(`Built ${files.length} file${files.length === 1 ? '' : 's'} as glob`));
 
-                    return output.join(`\n\n/* @zephra-new-file */\n\n`) + '\n';
+                    return output.join(config?.minify ? '' : '\n\n/* @zephra-new-file */\n\n');
                 }
 
                 const file = path.resolve(process.cwd(), importer);

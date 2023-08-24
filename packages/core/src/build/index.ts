@@ -9,6 +9,8 @@ const esc = (className: string) => {
     return className.replace(/([^\w_-])/g, '\\$1');
 };
 
+const classes = new Set();
+
 export default async (config: ZephraOptions, fileContent: string, outputAsArray: boolean) => {
     const includedClassNames = await scan(config, fileContent);
 
@@ -23,6 +25,8 @@ export default async (config: ZephraOptions, fileContent: string, outputAsArray:
             if (typeof rule === 'string') {
                 const { append: generatedAppend, css } = generate(config, className, rule, ...args);
 
+                if (classes.has(className)) continue;
+
                 if (typeof output === 'object') {
                     output.push({
                         className,
@@ -36,12 +40,16 @@ export default async (config: ZephraOptions, fileContent: string, outputAsArray:
                     output += `\n.${esc(className) + generatedAppend} {\n    ${css}\n}\n`;
                 }
 
+                classes.add(className);
+
                 continue;
             }
 
             const original = rule.generate(config, className, ...args);
 
             const { append: generatedAppend, css } = generate(config, className, original, ...args);
+
+            if (classes.has(className)) continue;
 
             if (typeof output === 'object') {
                 output.push({
@@ -56,10 +64,14 @@ export default async (config: ZephraOptions, fileContent: string, outputAsArray:
                 output += `\n.${esc(className) + generatedAppend} {\n    ${parseCSSLike(css)}\n}\n`;
             }
 
+            classes.add(className);
+
             continue;
         }
 
         if (typeof rule === 'string') {
+            if (classes.has(className)) continue;
+
             if (typeof output === 'object') {
                 output.push({
                     className,
@@ -69,10 +81,14 @@ export default async (config: ZephraOptions, fileContent: string, outputAsArray:
                 output += `\n.${className} {\n    ${rule}\n}\n`;
             }
 
+            classes.add(className);
+
             continue;
         }
 
         const { generate } = rule;
+
+        if (classes.has(className)) continue;
 
         if (typeof output === 'object') {
             output.push({
@@ -85,6 +101,8 @@ export default async (config: ZephraOptions, fileContent: string, outputAsArray:
         } else {
             output += `\n.${esc(className)} {${parseCSSLike(generate(config, className, ...args))}\n}\n`;
         }
+
+        classes.add(className);
 
         continue;
     }
