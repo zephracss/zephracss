@@ -9,9 +9,11 @@ const esc = (className: string) => {
     return className.replace(/([^\w_-])/g, '\\$1');
 };
 
-const classes = new Set();
+const classes: Set<string> = new Set();
 
 export default async (config: ZephraOptions, fileContent: string, outputAsArray: boolean) => {
+    classes.clear();
+
     const includedClassNames = await scan(config, fileContent);
 
     let output = outputAsArray ? [] : '';

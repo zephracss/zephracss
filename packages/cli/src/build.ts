@@ -8,6 +8,10 @@ import chalk from 'chalk';
 import { ZephraOptions, build } from '@zephracss/core';
 import { info } from '@zephracss/common';
 
+export const clean = (file: string) => {
+    return file.replace(process.cwd(), '').replace(/\\/g, '/').replace(/^\//, '');
+};
+
 const makeOutput = async (config: ZephraOptions, output: string) => {
     const file = config?.output || '_zephra.css';
 
@@ -19,23 +23,23 @@ const makeOutput = async (config: ZephraOptions, output: string) => {
 export default async (config: ZephraOptions) => {
     const start = perf_hooks.performance.now();
 
-    const files = await glob(config?.include || '**/*.{tsx,jsx,html}');
+    const files = await glob(path.join(process.cwd(), config?.include || '**/*.{tsx,jsx,html}'));
 
     const output: string[] = [];
 
     for (const file of files) {
-        console.log(info(`Building ${file}`));
+        console.log(info(`Building ${clean(file)}`));
 
         const content = await fs.readFile(file, 'utf-8');
         const res = await build(config, content, false);
 
         if (res) output.push(res);
 
-        console.log();
-        console.log(chalk.greenBright(`Built ${file}`));
+        if (res) console.log();
+        if (res) console.log(chalk.greenBright(`Built ${clean(file)}`));
     }
 
-    await makeOutput(config, output.join(config?.minify ? '' : '\n\n/* @zephra-new-file */\n\n'));
+    await makeOutput(config, output.join(config?.minify ? '/*@znf*/' : '\n\n/* @zephra-new-file */\n\n'));
 
     console.log();
     console.log(

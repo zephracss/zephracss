@@ -5,7 +5,7 @@ import { info, separator, logo } from '@zephracss/common';
 import { watch } from 'chokidar';
 
 import chalk from 'chalk';
-import build from './build';
+import build, { clean } from './build';
 
 import config, { RESOLVED_PATH, refetch } from './config';
 import { recomputeClassNames } from '@zephracss/core';
@@ -23,7 +23,7 @@ build(config);
 if (watchDev) {
     watch(config?.include || '**/*.{tsx,jsx,html}').on('change', (file) => {
         console.log(separator);
-        console.log(info(`File ${file} changed, rebuilding...`));
+        console.log(info(`File ${clean(file)} changed, rebuilding...`));
 
         build(config);
     });
